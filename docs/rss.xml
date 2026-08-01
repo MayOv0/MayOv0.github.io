@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>nullptr_t的博客</title><link>https://Kuwuwu.github.io</link><description>A Noob’s Nook</description><copyright>nullptr_t的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/115406732?u=66bca3bc834f9c00354643aad967b1259f39e5e7&amp;v=4&amp;size=64</url><title>avatar</title><link>https://Kuwuwu.github.io</link></image><lastBuildDate>Sun, 26 Jul 2026 02:12:32 +0000</lastBuildDate><managingEditor>nullptr_t的博客</managingEditor><ttl>60</ttl><webMaster>nullptr_t的博客</webMaster><item><title>【力扣 数组：二分查找】搜索插入位置 | x 的平方根 | 有效的完全平方数</title><link>https://Kuwuwu.github.io/post/%E3%80%90-li-kou-%20-shu-zu-%EF%BC%9A-er-fen-cha-zhao-%E3%80%91-sou-suo-cha-ru-wei-zhi-%20-%20x%20-de-ping-fang-gen-%20-%20-you-xiao-de-wan-quan-ping-fang-shu.html</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>nullptr_t的博客</title><link>https://MayOv0.github.io</link><description>A Noob’s Nook</description><copyright>nullptr_t的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/115406732?u=66bca3bc834f9c00354643aad967b1259f39e5e7&amp;v=4&amp;size=64</url><title>avatar</title><link>https://MayOv0.github.io</link></image><lastBuildDate>Sat, 01 Aug 2026 17:00:34 +0000</lastBuildDate><managingEditor>nullptr_t的博客</managingEditor><ttl>60</ttl><webMaster>nullptr_t的博客</webMaster><item><title>【力扣 数组：二分查找】搜索插入位置 | x 的平方根 | 有效的完全平方数</title><link>https://MayOv0.github.io/post/%E3%80%90-li-kou-%20-shu-zu-%EF%BC%9A-er-fen-cha-zhao-%E3%80%91-sou-suo-cha-ru-wei-zhi-%20-%20x%20-de-ping-fang-gen-%20-%20-you-xiao-de-wan-quan-ping-fang-shu.html</link><description>
 # [搜索插入位置](https://leetcode.cn/problems/search-insert-position/)
-给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。</description><guid isPermaLink="true">https://Kuwuwu.github.io/post/%E3%80%90-li-kou-%20-shu-zu-%EF%BC%9A-er-fen-cha-zhao-%E3%80%91-sou-suo-cha-ru-wei-zhi-%20-%20x%20-de-ping-fang-gen-%20-%20-you-xiao-de-wan-quan-ping-fang-shu.html</guid><pubDate>Sun, 26 Jul 2026 02:12:05 +0000</pubDate></item><item><title>【数据结构与算法】五大经典算法</title><link>https://Kuwuwu.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-wu-da-jing-dian-suan-fa.html</link><description># 回溯算法
+给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。</description><guid isPermaLink="true">https://MayOv0.github.io/post/%E3%80%90-li-kou-%20-shu-zu-%EF%BC%9A-er-fen-cha-zhao-%E3%80%91-sou-suo-cha-ru-wei-zhi-%20-%20x%20-de-ping-fang-gen-%20-%20-you-xiao-de-wan-quan-ping-fang-shu.html</guid><pubDate>Sun, 26 Jul 2026 02:12:05 +0000</pubDate></item><item><title>【数据结构与算法】五大经典算法</title><link>https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-wu-da-jing-dian-suan-fa.html</link><description># 回溯算法
 
-**算法思想**：在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根节点出发深度搜索解空间树。</description><guid isPermaLink="true">https://Kuwuwu.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-wu-da-jing-dian-suan-fa.html</guid><pubDate>Thu, 16 Jul 2026 09:21:13 +0000</pubDate></item><item><title>【数据结构与算法】KMP字串查找算法</title><link>https://Kuwuwu.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91KMP-zi-chuan-cha-zhao-suan-fa.html</link><description>## 目录
+**算法思想**：在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根节点出发深度搜索解空间树。</description><guid isPermaLink="true">https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-wu-da-jing-dian-suan-fa.html</guid><pubDate>Thu, 16 Jul 2026 09:21:13 +0000</pubDate></item><item><title>【数据结构与算法】KMP字串查找算法</title><link>https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91KMP-zi-chuan-cha-zhao-suan-fa.html</link><description>## 目录
 
 - [BF朴素算法查找子串](#bf朴素算法查找子串)
 - [KMP算法](#kmp算法)
@@ -219,7 +219,7 @@ int kmp(const char* s, const char* p)
 时间复杂度：`O(m+n)`
 
 空间复杂度：`O(m)`
-。</description><guid isPermaLink="true">https://Kuwuwu.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91KMP-zi-chuan-cha-zhao-suan-fa.html</guid><pubDate>Fri, 19 Jun 2026 12:16:18 +0000</pubDate></item><item><title>【数据结构与算法】排序</title><link>https://Kuwuwu.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-pai-xu.html</link><description>## 目录
+。</description><guid isPermaLink="true">https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91KMP-zi-chuan-cha-zhao-suan-fa.html</guid><pubDate>Fri, 19 Jun 2026 12:16:18 +0000</pubDate></item><item><title>【数据结构与算法】排序</title><link>https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-pai-xu.html</link><description>## 目录
 
 - [排序](#排序)
   - [定义](#定义)
@@ -278,4 +278,4 @@ int kmp(const char* s, const char* p)
 
 ### 排序的一般定义
 
-排序是计算机内经常进行的一种操作， 其目的是将一组“无序＂ 的数据元素调整为有序＂ 的数据元素。</description><guid isPermaLink="true">https://Kuwuwu.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-pai-xu.html</guid><pubDate>Fri, 19 Jun 2026 08:32:02 +0000</pubDate></item></channel></rss>
+排序是计算机内经常进行的一种操作， 其目的是将一组“无序＂ 的数据元素调整为有序＂ 的数据元素。</description><guid isPermaLink="true">https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-pai-xu.html</guid><pubDate>Fri, 19 Jun 2026 08:32:02 +0000</pubDate></item></channel></rss>
