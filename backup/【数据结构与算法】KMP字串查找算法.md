@@ -13,7 +13,7 @@
 
 # BF朴素算法查找子串
 
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/1.png" />
 
 时间复杂度 `O(m*n)` 空间复杂度 `O(1)`
 
@@ -78,13 +78,13 @@ int sub_str_index(const char* s, const char* p)
 
 ```
 
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/2.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/2.png" />
 这种暴力解法在很多地方做了无用功
 
 减少无用的对比就可以提高效率，如何做到移动合适的位置呢？
 
 通过肉眼我们可以清楚的看出可以右移一定位数减少没必要的比对，但如何在程序中计算？
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/3.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/3.png" />
 
 # KMP算法
 
@@ -95,7 +95,7 @@ int sub_str_index(const char* s, const char* p)
 任意子串都存在—个唯—的部分匹配表
 
 ## 部分匹配表的计算
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/4.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/4.png" />
 
 ### 前缀，后缀，部分匹配值概念
 
@@ -104,8 +104,8 @@ int sub_str_index(const char* s, const char* p)
 后缀：除了第—个字符以外，—个字符串的全部尾部组合
 
 部分匹配值：前缀和后缀最长共有元素的长度
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/5.png" />
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/6.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/5.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/6.png" />
 
 ### 编程上计算部分匹配值的思路
 
@@ -114,7 +114,7 @@ int sub_str_index(const char* s, const char* p)
 **当前要求的LL值由历史LL值推导**
 
 **当可选LL值为0，直接比对首尾元素**
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/7.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/7.png" />
 
 1 a一个字符自然不存在什么LL值，即为0
 
@@ -166,7 +166,7 @@ int* make_pmt(const char* p)
 ```
 
 ## KMP算法实现
-<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/8.png" />
+<img alt="Image" src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/8.png" />
 
 这里还是有些难以理解，这里最后一个等式指j（下标值）等于移动前的j值-右移位数，然后通过这个等式推导出j=PMT[j-1]的结论
 

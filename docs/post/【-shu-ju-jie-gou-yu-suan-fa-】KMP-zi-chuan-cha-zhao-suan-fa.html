@@ -25,7 +25,7 @@
 
 # BF朴素算法查找子串
 
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/1.png' />
 
 时间复杂度 `O(m*n)` 空间复杂度 `O(1)`
 
@@ -90,13 +90,13 @@ int sub_str_index(const char* s, const char* p)
 
 ```
 
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/2.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/2.png' />
 这种暴力解法在很多地方做了无用功
 
 减少无用的对比就可以提高效率，如何做到移动合适的位置呢？
 
 通过肉眼我们可以清楚的看出可以右移一定位数减少没必要的比对，但如何在程序中计算？
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/3.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/3.png' />
 
 # KMP算法
 
@@ -107,7 +107,7 @@ int sub_str_index(const char* s, const char* p)
 任意子串都存在—个唯—的部分匹配表
 
 ## 部分匹配表的计算
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/4.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/4.png' />
 
 ### 前缀，后缀，部分匹配值概念
 
@@ -116,8 +116,8 @@ int sub_str_index(const char* s, const char* p)
 后缀：除了第—个字符以外，—个字符串的全部尾部组合
 
 部分匹配值：前缀和后缀最长共有元素的长度
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/5.png' />
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/6.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/5.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/6.png' />
 
 ### 编程上计算部分匹配值的思路
 
@@ -126,7 +126,7 @@ int sub_str_index(const char* s, const char* p)
 **当前要求的LL值由历史LL值推导**
 
 **当可选LL值为0，直接比对首尾元素**
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/7.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/7.png' />
 
 1 a一个字符自然不存在什么LL值，即为0
 
@@ -178,7 +178,7 @@ int* make_pmt(const char* p)
 ```
 
 ## KMP算法实现
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/8.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/8.png' />
 
 这里还是有些难以理解，这里最后一个等式指j（下标值）等于移动前的j值-右移位数，然后通过这个等式推导出j=PMT[j-1]的结论
 
@@ -243,7 +243,7 @@ int kmp(const char* s, const char* p)
 
 # BF朴素算法查找子串
 
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/1.png' />
 
 时间复杂度 `O(m*n)` 空间复杂度 `O(1)`
 
@@ -308,13 +308,13 @@ int sub_str_index(const char* s, const char* p)
 
 ```
 
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/2.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/2.png' />
 这种暴力解法在很多地方做了无用功
 
 减少无用的对比就可以提高效率，如何做到移动合适的位置呢？
 
 通过肉眼我们可以清楚的看出可以右移一定位数减少没必要的比对，但如何在程序中计算？
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/3.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/3.png' />
 
 # KMP算法
 
@@ -325,7 +325,7 @@ int sub_str_index(const char* s, const char* p)
 任意子串都存在—个唯—的部分匹配表
 
 ## 部分匹配表的计算
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/4.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/4.png' />
 
 ### 前缀，后缀，部分匹配值概念
 
@@ -334,8 +334,8 @@ int sub_str_index(const char* s, const char* p)
 后缀：除了第—个字符以外，—个字符串的全部尾部组合
 
 部分匹配值：前缀和后缀最长共有元素的长度
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/5.png' />
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/6.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/5.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/6.png' />
 
 ### 编程上计算部分匹配值的思路
 
@@ -344,7 +344,7 @@ int sub_str_index(const char* s, const char* p)
 **当前要求的LL值由历史LL值推导**
 
 **当可选LL值为0，直接比对首尾元素**
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/7.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/7.png' />
 
 1 a一个字符自然不存在什么LL值，即为0
 
@@ -396,7 +396,7 @@ int* make_pmt(const char* p)
 ```
 
 ## KMP算法实现
-<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/8.png' />
+<img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/8.png' />
 
 这里还是有些难以理解，这里最后一个等式指j（下标值）等于移动前的j值-右移位数，然后通过这个等式推导出j=PMT[j-1]的结论
 
@@ -534,7 +534,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <hr>
 <h1>BF朴素算法查找子串</h1>
-<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8898b7f5a168c8117e5d41d3eb8454367990fd2564935e6d6e0625b0f43e0008/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f312e706e67"><img alt="Image" src="https://camo.githubusercontent.com/8898b7f5a168c8117e5d41d3eb8454367990fd2564935e6d6e0625b0f43e0008/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f312e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/21d2547527b0cf5b0a94b7c30048c61541f4070766c48e0e8f0540f13aed63a6/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f312e706e67"><img alt="Image" src="https://camo.githubusercontent.com/21d2547527b0cf5b0a94b7c30048c61541f4070766c48e0e8f0540f13aed63a6/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f312e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/1.png" style="max-width: 100%;"></a></p>
 <p>时间复杂度 <code class="notranslate">O(m*n)</code> 空间复杂度 <code class="notranslate">O(1)</code></p>
 <div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">int</span> <span class="pl-en">bf</span>(<span class="pl-k">const</span> <span class="pl-k">char</span>* s, <span class="pl-k">const</span> <span class="pl-k">char</span>* t)
 {
@@ -594,28 +594,28 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 }
 
 </pre></div>
-<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e3303e7783f0ebd01d6ce0ed324784ae459dd3aff5743719564b8010b4bad2b7/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f322e706e67"><img alt="Image" src="https://camo.githubusercontent.com/e3303e7783f0ebd01d6ce0ed324784ae459dd3aff5743719564b8010b4bad2b7/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f322e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/2.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/03d16d63df0a25f9b5235962f3dd71250f5f798e8c2320818bddbbb79dbb6851/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f322e706e67"><img alt="Image" src="https://camo.githubusercontent.com/03d16d63df0a25f9b5235962f3dd71250f5f798e8c2320818bddbbb79dbb6851/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f322e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/2.png" style="max-width: 100%;"></a></p>
 这种暴力解法在很多地方做了无用功
 <p>减少无用的对比就可以提高效率，如何做到移动合适的位置呢？</p>
 <p>通过肉眼我们可以清楚的看出可以右移一定位数减少没必要的比对，但如何在程序中计算？<br>
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f74e2e9bcfcab112c5fdfbdacedc0a2549e6cb48ec80df0795e755f86f1f5f3f/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f332e706e67"><img alt="Image" src="https://camo.githubusercontent.com/f74e2e9bcfcab112c5fdfbdacedc0a2549e6cb48ec80df0795e755f86f1f5f3f/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f332e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/3.png" style="max-width: 100%;"></a></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/00ce571c3add7768202ee00d50eba6151bacda4c8bb3e66117587573d8dddae2/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f332e706e67"><img alt="Image" src="https://camo.githubusercontent.com/00ce571c3add7768202ee00d50eba6151bacda4c8bb3e66117587573d8dddae2/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f332e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/3.png" style="max-width: 100%;"></a></p>
 <h1>KMP算法</h1>
 <p>匹配失败时的右移位数与子串本身相关， 与目标串无关</p>
 <p>移动位数＝己匹配的字符数－对应的部分匹配值</p>
 <p>任意子串都存在—个唯—的部分匹配表</p>
 <h2>部分匹配表的计算</h2>
-<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8dafda7e02806cd479c9661e68a3ee497d33bb85c909d449c907cd79745b6c96/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f342e706e67"><img alt="Image" src="https://camo.githubusercontent.com/8dafda7e02806cd479c9661e68a3ee497d33bb85c909d449c907cd79745b6c96/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f342e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/4.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f583c69909bd8fbfb9833f0c4453037eb03f60d347c283a51eb6afb00caef01c/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f342e706e67"><img alt="Image" src="https://camo.githubusercontent.com/f583c69909bd8fbfb9833f0c4453037eb03f60d347c283a51eb6afb00caef01c/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f342e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/4.png" style="max-width: 100%;"></a></p>
 <h3>前缀，后缀，部分匹配值概念</h3>
 <p>前缀：除了最后—个字符以外，—个字符串的全部头部组合</p>
 <p>后缀：除了第—个字符以外，—个字符串的全部尾部组合</p>
 <p>部分匹配值：前缀和后缀最长共有元素的长度<br>
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/89c1368b93bba8c2cf580b28139dbdff5fea69fdf300d064402f58b1b772b9ae/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f352e706e67"><img alt="Image" src="https://camo.githubusercontent.com/89c1368b93bba8c2cf580b28139dbdff5fea69fdf300d064402f58b1b772b9ae/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f352e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/5.png" style="max-width: 100%;"></a><br>
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7e7b93619a1f7214e35ef54d6d5f0e404a2db41d163960da84f4afb3b570918d/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f362e706e67"><img alt="Image" src="https://camo.githubusercontent.com/7e7b93619a1f7214e35ef54d6d5f0e404a2db41d163960da84f4afb3b570918d/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f362e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/6.png" style="max-width: 100%;"></a></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d74c35ea881bb69dce6835a950062e6dbc6c9a22aaacca1648987f7eb12c134f/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f352e706e67"><img alt="Image" src="https://camo.githubusercontent.com/d74c35ea881bb69dce6835a950062e6dbc6c9a22aaacca1648987f7eb12c134f/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f352e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/5.png" style="max-width: 100%;"></a><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d3d78df7c12046518b0499bcbaffda36fc55d3d249ee73c42f1db8e714b5a056/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f362e706e67"><img alt="Image" src="https://camo.githubusercontent.com/d3d78df7c12046518b0499bcbaffda36fc55d3d249ee73c42f1db8e714b5a056/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f362e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/6.png" style="max-width: 100%;"></a></p>
 <h3>编程上计算部分匹配值的思路</h3>
 <p><strong>LL值即longest lenth（前缀，后缀交集元素的最大长度）</strong></p>
 <p><strong>当前要求的LL值由历史LL值推导</strong></p>
 <p><strong>当可选LL值为0，直接比对首尾元素</strong><br>
-<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/70ec57f5389a1302197ed582a227ceb2c9120804b2dfa657ffcf9abf59c6b441/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f372e706e67"><img alt="Image" src="https://camo.githubusercontent.com/70ec57f5389a1302197ed582a227ceb2c9120804b2dfa657ffcf9abf59c6b441/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f372e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/7.png" style="max-width: 100%;"></a></p>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0ca4996b4c4ef5cdb9aeed2f255d16598ac57f9b14beb3def22bbe08654ee828/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f372e706e67"><img alt="Image" src="https://camo.githubusercontent.com/0ca4996b4c4ef5cdb9aeed2f255d16598ac57f9b14beb3def22bbe08654ee828/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f372e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/7.png" style="max-width: 100%;"></a></p>
 <p>1 a一个字符自然不存在什么LL值，即为0</p>
 <p>2 ab之前的部分的LL值为0，直接比对首尾值，<code class="notranslate">a!=b</code>，LL值为0</p>
 <p>3 aba之前的部分的LL值为0，直接比对首尾值，<code class="notranslate">a==a</code>，LL值为0+1=1</p>
@@ -655,7 +655,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 }
 </pre></div>
 <h2>KMP算法实现</h2>
-<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c59ea7568de82620d196cfda405b0b082935fbc05bb1c7280adf76ffff6164b6/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f382e706e67"><img alt="Image" src="https://camo.githubusercontent.com/c59ea7568de82620d196cfda405b0b082935fbc05bb1c7280adf76ffff6164b6/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f34315f4b4d502545352541442539372545342542382542322545362539462541352545362538392542452545372541452539372545362542332539352f382e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/8.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c6cd71dd64a2e7abf78098bfdaa43c7464a79f8e4179b3e230ca63700942bacf/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f382e706e67"><img alt="Image" src="https://camo.githubusercontent.com/c6cd71dd64a2e7abf78098bfdaa43c7464a79f8e4179b3e230ca63700942bacf/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f34315f6b6d705f737472696e675f7365617263682f382e706e67" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/8.png" style="max-width: 100%;"></a></p>
 <p>这里还是有些难以理解，这里最后一个等式指j（下标值）等于移动前的j值-右移位数，然后通过这个等式推导出j=PMT[j-1]的结论</p>
 <p>下面是实现代码</p>
 <div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">int</span> <span class="pl-en">kmp</span>(<span class="pl-k">const</span> <span class="pl-k">char</span>* s, <span class="pl-k">const</span> <span class="pl-k">char</span>* p)

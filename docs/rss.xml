@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>nullptr_t的博客</title><link>https://MayOv0.github.io</link><description>A Noob’s Nook</description><copyright>nullptr_t的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/115406732?u=66bca3bc834f9c00354643aad967b1259f39e5e7&amp;v=4&amp;size=64</url><title>avatar</title><link>https://MayOv0.github.io</link></image><lastBuildDate>Sat, 01 Aug 2026 17:00:34 +0000</lastBuildDate><managingEditor>nullptr_t的博客</managingEditor><ttl>60</ttl><webMaster>nullptr_t的博客</webMaster><item><title>【力扣 数组：二分查找】搜索插入位置 | x 的平方根 | 有效的完全平方数</title><link>https://MayOv0.github.io/post/%E3%80%90-li-kou-%20-shu-zu-%EF%BC%9A-er-fen-cha-zhao-%E3%80%91-sou-suo-cha-ru-wei-zhi-%20-%20x%20-de-ping-fang-gen-%20-%20-you-xiao-de-wan-quan-ping-fang-shu.html</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>nullptr_t的博客</title><link>https://MayOv0.github.io</link><description>A Noob’s Nook</description><copyright>nullptr_t的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/115406732?u=66bca3bc834f9c00354643aad967b1259f39e5e7&amp;v=4&amp;size=64</url><title>avatar</title><link>https://MayOv0.github.io</link></image><lastBuildDate>Wed, 30 Sep 2026 14:22:57 +0000</lastBuildDate><managingEditor>nullptr_t的博客</managingEditor><ttl>60</ttl><webMaster>nullptr_t的博客</webMaster><item><title>【力扣 数组：二分查找】搜索插入位置 | x 的平方根 | 有效的完全平方数</title><link>https://MayOv0.github.io/post/%E3%80%90-li-kou-%20-shu-zu-%EF%BC%9A-er-fen-cha-zhao-%E3%80%91-sou-suo-cha-ru-wei-zhi-%20-%20x%20-de-ping-fang-gen-%20-%20-you-xiao-de-wan-quan-ping-fang-shu.html</link><description>
 # [搜索插入位置](https://leetcode.cn/problems/search-insert-position/)
 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。</description><guid isPermaLink="true">https://MayOv0.github.io/post/%E3%80%90-li-kou-%20-shu-zu-%EF%BC%9A-er-fen-cha-zhao-%E3%80%91-sou-suo-cha-ru-wei-zhi-%20-%20x%20-de-ping-fang-gen-%20-%20-you-xiao-de-wan-quan-ping-fang-shu.html</guid><pubDate>Sun, 26 Jul 2026 02:12:05 +0000</pubDate></item><item><title>【数据结构与算法】五大经典算法</title><link>https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-wu-da-jing-dian-suan-fa.html</link><description># 回溯算法
 
@@ -18,7 +18,7 @@
 
 # BF朴素算法查找子串
 
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/1.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/1.png' /&gt;
 
 时间复杂度 `O(m*n)` 空间复杂度 `O(1)`
 
@@ -83,13 +83,13 @@ int sub_str_index(const char* s, const char* p)
 
 ```
 
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/2.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/2.png' /&gt;
 这种暴力解法在很多地方做了无用功
 
 减少无用的对比就可以提高效率，如何做到移动合适的位置呢？
 
 通过肉眼我们可以清楚的看出可以右移一定位数减少没必要的比对，但如何在程序中计算？
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/3.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/3.png' /&gt;
 
 # KMP算法
 
@@ -100,7 +100,7 @@ int sub_str_index(const char* s, const char* p)
 任意子串都存在—个唯—的部分匹配表
 
 ## 部分匹配表的计算
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/4.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/4.png' /&gt;
 
 ### 前缀，后缀，部分匹配值概念
 
@@ -109,8 +109,8 @@ int sub_str_index(const char* s, const char* p)
 后缀：除了第—个字符以外，—个字符串的全部尾部组合
 
 部分匹配值：前缀和后缀最长共有元素的长度
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/5.png' /&gt;
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/6.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/5.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/6.png' /&gt;
 
 ### 编程上计算部分匹配值的思路
 
@@ -119,7 +119,7 @@ int sub_str_index(const char* s, const char* p)
 **当前要求的LL值由历史LL值推导**
 
 **当可选LL值为0，直接比对首尾元素**
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/7.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/7.png' /&gt;
 
 1 a一个字符自然不存在什么LL值，即为0
 
@@ -171,7 +171,7 @@ int* make_pmt(const char* p)
 ```
 
 ## KMP算法实现
-&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/41_KMP%E5%AD%97%E4%B8%B2%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/8.png' /&gt;
+&lt;img alt='Image' src='https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/41_kmp_string_search/8.png' /&gt;
 
 这里还是有些难以理解，这里最后一个等式指j（下标值）等于移动前的j值-右移位数，然后通过这个等式推导出j=PMT[j-1]的结论
 
