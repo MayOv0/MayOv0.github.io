@@ -21,7 +21,7 @@
 <meta property="og:url" content="https://MayOv0.github.io/post/%E3%80%90-shu-ju-jie-gou-yu-suan-fa-%E3%80%91-wu-da-jing-dian-suan-fa.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/115406732?u=66bca3bc834f9c00354643aad967b1259f39e5e7&v=4&size=64">
 <title>【数据结构与算法】五大经典算法</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 
 </head>
@@ -45,7 +45,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     body {padding: 8px;}
     .postTitle{font-size:24px;}
 }
-
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
 </style>
 
 
@@ -82,140 +92,138 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>子集树</h2>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/662934289c691205ef376a9a69769e99d39905890591c48c5b702e0be01eb85c/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f312e706e67"><img src="https://camo.githubusercontent.com/662934289c691205ef376a9a69769e99d39905890591c48c5b702e0be01eb85c/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f312e706e67" alt="1" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/83_classic_algorithms/1.png" style="max-width: 100%;"></a></p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f125efe1a732a2f37022fd175b87383bfbf75a61e97486c368fa6b9ebaaceb13/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f322e706e67"><img src="https://camo.githubusercontent.com/f125efe1a732a2f37022fd175b87383bfbf75a61e97486c368fa6b9ebaaceb13/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f322e706e67" alt="2" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/83_classic_algorithms/2.png" style="max-width: 100%;"></a></p>
-<pre lang="cpp" class="notranslate"><code class="notranslate">void func(int arr[], int i, int length, int x[])
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> arr[], <span class="pl-k">int</span> i, <span class="pl-k">int</span> length, <span class="pl-k">int</span> x[])
 {
-    if (i == length)   // 递归结束的条件 StackOverFlow
+    <span class="pl-k">if</span> (i == length)   <span class="pl-c"><span class="pl-c">//</span> 递归结束的条件 StackOverFlow</span>
     {
-        for (int j = 0; j &lt; length; ++j)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; length; ++j)
         {
-            if (x[j] == 1)
+            <span class="pl-k">if</span> (x[j] == <span class="pl-c1">1</span>)
             {
-                cout &lt;&lt; arr[j] &lt;&lt; " ";   // 1 2 3
+                cout &lt;&lt; arr[j] &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;   <span class="pl-c"><span class="pl-c">//</span> 1 2 3</span>
             }
         }
         cout &lt;&lt; endl;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        x[i] = 1;   // 选择i节点
-        func(arr, i + 1, length, x); // 遍历i的左孩子
+        x[i] = <span class="pl-c1">1</span>;   <span class="pl-c"><span class="pl-c">//</span> 选择i节点</span>
+        <span class="pl-c1">func</span>(arr, i + <span class="pl-c1">1</span>, length, x); <span class="pl-c"><span class="pl-c">//</span> 遍历i的左孩子</span>
 
-        x[i] = 0;  // 不选择i节点
-        func(arr, i + 1, length, x); // 遍历i的右孩子
+        x[i] = <span class="pl-c1">0</span>;  <span class="pl-c"><span class="pl-c">//</span> 不选择i节点</span>
+        <span class="pl-c1">func</span>(arr, i + <span class="pl-c1">1</span>, length, x); <span class="pl-c"><span class="pl-c">//</span> 遍历i的右孩子</span>
     }
 }
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    int arr[] = { 1,2,3 };   // 1 2 3 12 13 23 ...
-    int length = sizeof(arr) / sizeof(arr[0]);
-    int x[3] = { 0 };
-    func(arr, 0, length, x);
-    return 0;
-}
-</code></pre>
+    <span class="pl-k">int</span> arr[] = { <span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span> };   <span class="pl-c"><span class="pl-c">//</span> 1 2 3 12 13 23 ...</span>
+    <span class="pl-k">int</span> length = <span class="pl-k">sizeof</span>(arr) / <span class="pl-k">sizeof</span>(arr[<span class="pl-c1">0</span>]);
+    <span class="pl-k">int</span> x[<span class="pl-c1">3</span>] = { <span class="pl-c1">0</span> };
+    <span class="pl-c1">func</span>(arr, <span class="pl-c1">0</span>, length, x);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
 <h2>排列树</h2>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/acd0880b7ac1c8d6b38c70f3e29c8750a4f0913386c68ac0a4277dd6fc76ccd8/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f332e706e67"><img src="https://camo.githubusercontent.com/acd0880b7ac1c8d6b38c70f3e29c8750a4f0913386c68ac0a4277dd6fc76ccd8/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f332e706e67" alt="3" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/83_classic_algorithms/3.png" style="max-width: 100%;"></a></p>
-<pre lang="cpp" class="notranslate"><code class="notranslate">void swap(int arr[], int i, int j)
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">void</span> <span class="pl-en">swap</span>(<span class="pl-k">int</span> arr[], <span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
 {
-    int tmp = arr[i];
+    <span class="pl-k">int</span> tmp = arr[i];
     arr[i] = arr[j];
     arr[j] = tmp;
 }
-void func(int arr[], int i, int length)
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> arr[], <span class="pl-k">int</span> i, <span class="pl-k">int</span> length)
 {
-    if (i == length)
+    <span class="pl-k">if</span> (i == length)
     {
-        for (int j = 0; j &lt; length; ++j)
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; length; ++j)
         {
-            cout &lt;&lt; arr[j] &lt;&lt; " ";
+            cout &lt;&lt; arr[j] &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
         }
         cout &lt;&lt; endl;
     }
-    else
+    <span class="pl-k">else</span>
     {
-        // 生成i节点的所有孩子节点
-        for (int k = i; k &lt; length; ++k)
+        <span class="pl-c"><span class="pl-c">//</span> 生成i节点的所有孩子节点</span>
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> k = i; k &lt; length; ++k)
         {
-            swap(arr, i, k);
-            func(arr, i + 1, length);
-            swap(arr, i, k); // 一定要再交换回来
+            <span class="pl-c1">swap</span>(arr, i, k);
+            <span class="pl-c1">func</span>(arr, i + <span class="pl-c1">1</span>, length);
+            <span class="pl-c1">swap</span>(arr, i, k); <span class="pl-c"><span class="pl-c">//</span> 一定要再交换回来</span>
         }
     }
 }
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    int arr[] = { 1,2,3,4 };
-    int length = sizeof(arr) / sizeof(arr[0]);
-    func(arr, 0, length);
+    <span class="pl-k">int</span> arr[] = { <span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span> };
+    <span class="pl-k">int</span> length = <span class="pl-k">sizeof</span>(arr) / <span class="pl-k">sizeof</span>(arr[<span class="pl-c1">0</span>]);
+    <span class="pl-c1">func</span>(arr, <span class="pl-c1">0</span>, length);
 
-    return 0;
-}
-</code></pre>
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}</pre></div>
 <h2>经典问题</h2>
 <h3>整数选择问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-整数选择问题：给定一组整数，从里面挑选出一组整数，让选择的整数的和，和剩下的整数的和的差最小
-*/
-#if 1
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">整数选择问题：给定一组整数，从里面挑选出一组整数，让选择的整数的和，和剩下的整数的和的差最小</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
+#<span class="pl-k">if</span> <span class="pl-c1">1</span>
 
-int arr[] = {12, 53, 29, 10, 59, 39, 20};
-int length = sizeof(arr) / sizeof(arr[0]);
-int sum = 0;                        // 已选择整数的和
-int usum = 0;                       // 未选择整数的和
-unsigned int min_diff = 0xFFFFFFFF; // 当前最小差值
-vector&lt;int&gt; vecx;                   // 记录选择的所有元素
-vector&lt;int&gt; vec;
+<span class="pl-k">int</span> arr[] = {<span class="pl-c1">12</span>, <span class="pl-c1">53</span>, <span class="pl-c1">29</span>, <span class="pl-c1">10</span>, <span class="pl-c1">59</span>, <span class="pl-c1">39</span>, <span class="pl-c1">20</span>};
+<span class="pl-k">int</span> length = <span class="pl-k">sizeof</span>(arr) / <span class="pl-k">sizeof</span>(arr[<span class="pl-c1">0</span>]);
+<span class="pl-k">int</span> sum = <span class="pl-c1">0</span>;                        <span class="pl-c"><span class="pl-c">//</span> 已选择整数的和</span>
+<span class="pl-k">int</span> usum = <span class="pl-c1">0</span>;                       <span class="pl-c"><span class="pl-c">//</span> 未选择整数的和</span>
+<span class="pl-k">unsigned</span> <span class="pl-k">int</span> min_diff = <span class="pl-c1">0xFFFFFFFF</span>; <span class="pl-c"><span class="pl-c">//</span> 当前最小差值</span>
+vector&lt;<span class="pl-k">int</span>&gt; vecx;                   <span class="pl-c"><span class="pl-c">//</span> 记录选择的所有元素</span>
+vector&lt;<span class="pl-k">int</span>&gt; vec;
 
-void func(int i)
+<span class="pl-k">void</span> <span class="pl-en">func</span>(<span class="pl-k">int</span> i)
 {
-    if (i == length)
+    <span class="pl-k">if</span> (i == length)
     {
-        if (min_diff &gt; abs(sum - usum))
+        <span class="pl-k">if</span> (min_diff &gt; <span class="pl-c1">abs</span>(sum - usum))
         {
-            min_diff = abs(sum - usum);
+            min_diff = <span class="pl-c1">abs</span>(sum - usum);
             vec = vecx;
         }
     }
-    else
+    <span class="pl-k">else</span>
     {
-        // 选择当前元素
-        usum -= arr[i]; // 从未选中移除
-        vecx.push_back(arr[i]);
+        <span class="pl-c"><span class="pl-c">//</span> 选择当前元素</span>
+        usum -= arr[i]; <span class="pl-c"><span class="pl-c">//</span> 从未选中移除</span>
+        vecx.<span class="pl-c1">push_back</span>(arr[i]);
         sum += arr[i];
-        func(i + 1);
+        <span class="pl-c1">func</span>(i + <span class="pl-c1">1</span>);
         sum -= arr[i];
-        vecx.pop_back();
-        usum += arr[i]; // 恢复 usum（现在 arr[i] 又回到未选中状态）
+        vecx.<span class="pl-c1">pop_back</span>();
+        usum += arr[i]; <span class="pl-c"><span class="pl-c">//</span> 恢复 usum（现在 arr[i] 又回到未选中状态）</span>
 
-        // 跳过当前元素（不选）
-        func(i + 1); // 此时 usum 正确包含了 arr[i]
+        <span class="pl-c"><span class="pl-c">//</span> 跳过当前元素（不选）</span>
+        <span class="pl-c1">func</span>(i + <span class="pl-c1">1</span>); <span class="pl-c"><span class="pl-c">//</span> 此时 usum 正确包含了 arr[i]</span>
     }
 }
 
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    for (int v : arr)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : arr)
     {
         usum += v;
     }
 
-    func(0);
+    <span class="pl-c1">func</span>(<span class="pl-c1">0</span>);
 
-    cout &lt;&lt; "最小差值为: " &lt;&lt; min_diff &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>最小差值为: <span class="pl-pds">"</span></span> &lt;&lt; min_diff &lt;&lt; endl;
 
-    cout &lt;&lt; "元素: ";
-    for (int v : vec)
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>元素: <span class="pl-pds">"</span></span>;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec)
     {
-        cout &lt;&lt; v &lt;&lt; " ";
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
 
-#endif
+#<span class="pl-k">endif</span>
 
-#if 0
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 
 /*
 挑选数字：有一组整数，请挑选出一组数字，让他们的和等于指定的值，存在解打印，不存在打印
@@ -261,13 +269,12 @@ int main()
     cout &lt;&lt; "cnt: " &lt;&lt; cnt &lt;&lt; endl;
     return 0;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>2N整数选择问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-整数选择问题：给定2n个整数，从里面挑选出n个整数，让选择的整数的和，和剩下的整数的和的差最小
-*/
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">整数选择问题：给定2n个整数，从里面挑选出n个整数，让选择的整数的和，和剩下的整数的和的差最小</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 
 int arr[] = { 38,19,10,9,7,3,8,12,11,29,19,17 };
 int length = sizeof(arr) / sizeof(arr[0]);
@@ -337,14 +344,13 @@ int main()
     return 0;
 }
 
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>0-1背包</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-0-1背包问题：有一组物品，其重量分别是:w1,w2,...wn，其价值分别是v1,v2,...,vn，现在有一个背包，其容量是C，
-问怎么把物品装入背包，能够使背包的价值最大化？
-*/
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">0-1背包问题：有一组物品，其重量分别是:w1,w2,...wn，其价值分别是v1,v2,...,vn，现在有一个背包，其容量是C，</span>
+<span class="pl-c">问怎么把物品装入背包，能够使背包的价值最大化？</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 
 int w[] = { 4,10,8,2,18,6,20,12 };
 int v[] = { 2,5,4,1,9,3,10,6 };
@@ -421,11 +427,10 @@ int main()
     return 0;
 }
 
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>八皇后问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">//八皇后问题
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>八皇后问题</span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 
 int arr[] = { 1,2,3,4,5,6,7,8 };
 int length = sizeof(arr) / sizeof(arr[0]);
@@ -476,89 +481,87 @@ int main()
     cout &lt;&lt; "count of solution: " &lt;&lt; scount &lt;&lt; endl;
 }
 
-#endif
-
-</code></pre>
+#<span class="pl-k">endif</span>
+</pre></div>
 <h1>分治算法</h1>
 <p><strong>分治算法思想</strong>：规模为n的原问题的解无法直接求出，进行问题规模缩减，划分子问题（这里子问题相互独立而且和原问题解的性质是相同的，只是问题规模缩小了）。如果子问题的规模仍然不够小，再进行子问题划分，如此<strong>递归</strong>的进行下去，直到问题规模足够小，很容易求出其解为止，最后将求出的小规模的问题的解合并为一个更大规模的问题的解，自底向上逐步求出原问题的解。</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/086827fd482d2ed9f0602f6b5fd6f1b73a02fb32847ce7342fc69469e389e4bb/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f342e706e67"><img src="https://camo.githubusercontent.com/086827fd482d2ed9f0602f6b5fd6f1b73a02fb32847ce7342fc69469e389e4bb/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f342e706e67" alt="4" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/83_classic_algorithms/4.png" style="max-width: 100%;"></a></p>
 <p><strong>分治算法适用条件：分治法所能解决的问题一般具有以下几个特征：1.原问题的规模缩小到一定的程度就可以容易地解决2.原问题可以分解为若干个规模较小的相同问题，即原问题具有最优子结构性质</strong>3.利用原问题分解出的子问题的解可以合并为原问题的解4.原问题所分解出的各个子问题是相互独立的，即子问题之间<strong>不包含公共的子问题</strong>（这条特征涉及到分治法的效率，如果各个子问题不独立，也就是子问题划分有重合的部分，则分治法要重复的求解公共子问题的解，此时虽然也可用分治法，但采用<strong>动态规划</strong>更好）</p>
 <h2>分治算法问题案例</h2>
 <h3>二分搜索</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">#if 1
-bool binarySearch(vector&lt;int&gt; &amp;vec,int i,int j,int val)
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">if</span> <span class="pl-c1">1</span>
+<span class="pl-k">bool</span> <span class="pl-en">binarySearch</span>(vector&lt;<span class="pl-k">int</span>&gt; &amp;vec,<span class="pl-k">int</span> i,<span class="pl-k">int</span> j,<span class="pl-k">int</span> val)
 {
-    if (i &gt; j)
+    <span class="pl-k">if</span> (i &gt; j)
     {
-        return false;
+        <span class="pl-k">return</span> <span class="pl-c1">false</span>;
     }
 
-    int mid = (i + j) / 2;
+    <span class="pl-k">int</span> mid = (i + j) / <span class="pl-c1">2</span>;
 
-    if (val &gt; vec[mid])
+    <span class="pl-k">if</span> (val &gt; vec[mid])
     {
-        binarySearch(vec, mid + 1, j, val);
+        <span class="pl-c1">binarySearch</span>(vec, mid + <span class="pl-c1">1</span>, j, val);
     }
-    else if (val &lt; vec[mid])
+    <span class="pl-k">else</span> <span class="pl-k">if</span> (val &lt; vec[mid])
     {
-        binarySearch(vec, i, mid - 1, val);
+        <span class="pl-c1">binarySearch</span>(vec, i, mid - <span class="pl-c1">1</span>, val);
     }
-    else
+    <span class="pl-k">else</span>
     {
-        return true;
+        <span class="pl-k">return</span> <span class="pl-c1">true</span>;
     }
 }
 
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    srand(time(nullptr));
+    <span class="pl-c1">srand</span>(<span class="pl-c1">time</span>(<span class="pl-c1">nullptr</span>));
 
-    vector&lt;int&gt; vec;
-    for (int i = 0; i &lt; 11; ++i) {
-        vec.push_back(rand() % 100);
+    vector&lt;<span class="pl-k">int</span>&gt; vec;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">11</span>; ++i) {
+        vec.<span class="pl-c1">push_back</span>(<span class="pl-c1">rand</span>() % <span class="pl-c1">100</span>);
     }
-    sort(vec.begin(), vec.end());
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
+    <span class="pl-c1">sort</span>(vec.<span class="pl-c1">begin</span>(), vec.<span class="pl-c1">end</span>());
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    bool result = binarySearch(vec, 0, vec.size() - 1, 34);
-    cout &lt;&lt; "result:" &lt;&lt; result &lt;&lt; endl;
+    <span class="pl-k">bool</span> result = <span class="pl-c1">binarySearch</span>(vec, <span class="pl-c1">0</span>, vec.<span class="pl-c1">size</span>() - <span class="pl-c1">1</span>, <span class="pl-c1">34</span>);
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>result:<span class="pl-pds">"</span></span> &lt;&lt; result &lt;&lt; endl;
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>快速排序</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">#if 1
-int partation(vector&lt;int&gt;&amp; vec, int i, int j)
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">if</span> <span class="pl-c1">1</span>
+<span class="pl-k">int</span> <span class="pl-en">partation</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; vec, <span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
 {
-    int mid = (i + j) / 2;
+    <span class="pl-k">int</span> mid = (i + j) / <span class="pl-c1">2</span>;
 
-    int base = vec[mid];
+    <span class="pl-k">int</span> base = vec[mid];
 
-    int tmp = vec[i];
+    <span class="pl-k">int</span> tmp = vec[i];
     vec[i] = vec[mid];
     vec[mid] = tmp;
 
-    int l = i, r = j;
-    while (l &lt; r)
+    <span class="pl-k">int</span> l = i, r = j;
+    <span class="pl-k">while</span> (l &lt; r)
     {
-        while (l &lt; r &amp;&amp; vec[r] &gt;= base)
+        <span class="pl-k">while</span> (l &lt; r &amp;&amp; vec[r] &gt;= base)
         {
             r--;
         }
-        if (l &lt; r)
+        <span class="pl-k">if</span> (l &lt; r)
         {
             vec[l++] = vec[r];
         }
 
-        while (l &lt; r &amp;&amp; vec[l] &lt;= base)
+        <span class="pl-k">while</span> (l &lt; r &amp;&amp; vec[l] &lt;= base)
         {
             l++;
         }
-        if (l &lt; r)
+        <span class="pl-k">if</span> (l &lt; r)
         {
             vec[r--] = vec[l];
         }
@@ -566,78 +569,77 @@ int partation(vector&lt;int&gt;&amp; vec, int i, int j)
 
     vec[l] = base;
 
-    return l;
+    <span class="pl-k">return</span> l;
 }
-void quickSort(vector&lt;int&gt; &amp;vec,int i,int j)
+<span class="pl-k">void</span> <span class="pl-en">quickSort</span>(vector&lt;<span class="pl-k">int</span>&gt; &amp;vec,<span class="pl-k">int</span> i,<span class="pl-k">int</span> j)
 {
-    if (i &gt;= j)
+    <span class="pl-k">if</span> (i &gt;= j)
     {
-        return;
+        <span class="pl-k">return</span>;
     }
 
-    int pos = partation(vec, i, j);
-    quickSort(vec, i, pos - 1);
-    quickSort(vec, pos + 1, j);
+    <span class="pl-k">int</span> pos = <span class="pl-c1">partation</span>(vec, i, j);
+    <span class="pl-c1">quickSort</span>(vec, i, pos - <span class="pl-c1">1</span>);
+    <span class="pl-c1">quickSort</span>(vec, pos + <span class="pl-c1">1</span>, j);
 }
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    srand(time(nullptr));
+    <span class="pl-c1">srand</span>(<span class="pl-c1">time</span>(<span class="pl-c1">nullptr</span>));
 
-    vector&lt;int&gt; vec;
-    for (int i = 0; i &lt; 11; ++i) {
-        vec.push_back(rand() % 100);
+    vector&lt;<span class="pl-k">int</span>&gt; vec;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">11</span>; ++i) {
+        vec.<span class="pl-c1">push_back</span>(<span class="pl-c1">rand</span>() % <span class="pl-c1">100</span>);
     }
 
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    quickSort(vec, 0, vec.size() - 1);
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
+    <span class="pl-c1">quickSort</span>(vec, <span class="pl-c1">0</span>, vec.<span class="pl-c1">size</span>() - <span class="pl-c1">1</span>);
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
 
     cout &lt;&lt; endl;
 
-    sort(vec.begin(), vec.end());
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
+    <span class="pl-c1">sort</span>(vec.<span class="pl-c1">begin</span>(), vec.<span class="pl-c1">end</span>());
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>快排分割函数求top K问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">#if 1
-int partation(vector&lt;int&gt;&amp; vec, int i, int j)
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">if</span> <span class="pl-c1">1</span>
+<span class="pl-k">int</span> <span class="pl-en">partation</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; vec, <span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
 {
-    int mid = (i + j) / 2;
+    <span class="pl-k">int</span> mid = (i + j) / <span class="pl-c1">2</span>;
 
-    int base = vec[mid];
+    <span class="pl-k">int</span> base = vec[mid];
 
-    int tmp = vec[i];
+    <span class="pl-k">int</span> tmp = vec[i];
     vec[i] = vec[mid];
     vec[mid] = tmp;
 
-    int l = i, r = j;
-    while (l &lt; r)
+    <span class="pl-k">int</span> l = i, r = j;
+    <span class="pl-k">while</span> (l &lt; r)
     {
-        while (l &lt; r &amp;&amp; vec[r] &gt;= base)
+        <span class="pl-k">while</span> (l &lt; r &amp;&amp; vec[r] &gt;= base)
         {
             r--;
         }
-        if (l &lt; r)
+        <span class="pl-k">if</span> (l &lt; r)
         {
             vec[l++] = vec[r];
         }
 
-        while (l &lt; r &amp;&amp; vec[l] &lt;= base)
+        <span class="pl-k">while</span> (l &lt; r &amp;&amp; vec[l] &lt;= base)
         {
             l++;
         }
-        if (l &lt; r)
+        <span class="pl-k">if</span> (l &lt; r)
         {
             vec[r--] = vec[l];
         }
@@ -645,394 +647,390 @@ int partation(vector&lt;int&gt;&amp; vec, int i, int j)
 
     vec[l] = base;
 
-    return l;
+    <span class="pl-k">return</span> l;
 }
-//求第k大的
-int max_select_topk(vector&lt;int&gt;&amp; vec, int i, int j, int k)
+<span class="pl-c"><span class="pl-c">//</span>求第k大的</span>
+<span class="pl-k">int</span> <span class="pl-en">max_select_topk</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; vec, <span class="pl-k">int</span> i, <span class="pl-k">int</span> j, <span class="pl-k">int</span> k)
 {
-    int pos = partation(vec, i, j);
+    <span class="pl-k">int</span> pos = <span class="pl-c1">partation</span>(vec, i, j);
 
-    if (pos == vec.size() - k)
+    <span class="pl-k">if</span> (pos == vec.<span class="pl-c1">size</span>() - k)
     {
-        return pos;
+        <span class="pl-k">return</span> pos;
     }
-    else if (pos &gt; vec.size() - k)
+    <span class="pl-k">else</span> <span class="pl-k">if</span> (pos &gt; vec.<span class="pl-c1">size</span>() - k)
     {
-        max_select_topk(vec, i, pos - 1, k);
+        <span class="pl-c1">max_select_topk</span>(vec, i, pos - <span class="pl-c1">1</span>, k);
     }
-    else
+    <span class="pl-k">else</span>
     {
-        max_select_topk(vec, pos + 1, j, k);
-    }
-}
-//求第k小的
-int min_select_topk(vector&lt;int&gt;&amp; vec, int i, int j, int k)
-{
-    int pos = partation(vec, i, j);
-
-    if (pos == k - 1)
-    {
-        return pos;
-    }
-    else if (pos &gt; k - 1)
-    {
-        min_select_topk(vec, i, pos - 1, k);
-    }
-    else
-    {
-        min_select_topk(vec, pos + 1, j, k);
+        <span class="pl-c1">max_select_topk</span>(vec, pos + <span class="pl-c1">1</span>, j, k);
     }
 }
-int main()
+<span class="pl-c"><span class="pl-c">//</span>求第k小的</span>
+<span class="pl-k">int</span> <span class="pl-en">min_select_topk</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; vec, <span class="pl-k">int</span> i, <span class="pl-k">int</span> j, <span class="pl-k">int</span> k)
 {
-    vector&lt;int&gt; vec;
-    for (int i = 0; i &lt; 20; ++i) {
-        vec.push_back(rand() % 100);
+    <span class="pl-k">int</span> pos = <span class="pl-c1">partation</span>(vec, i, j);
+
+    <span class="pl-k">if</span> (pos == k - <span class="pl-c1">1</span>)
+    {
+        <span class="pl-k">return</span> pos;
+    }
+    <span class="pl-k">else</span> <span class="pl-k">if</span> (pos &gt; k - <span class="pl-c1">1</span>)
+    {
+        <span class="pl-c1">min_select_topk</span>(vec, i, pos - <span class="pl-c1">1</span>, k);
+    }
+    <span class="pl-k">else</span>
+    {
+        <span class="pl-c1">min_select_topk</span>(vec, pos + <span class="pl-c1">1</span>, j, k);
+    }
+}
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
+{
+    vector&lt;<span class="pl-k">int</span>&gt; vec;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">20</span>; ++i) {
+        vec.<span class="pl-c1">push_back</span>(<span class="pl-c1">rand</span>() % <span class="pl-c1">100</span>);
     }
 
-    // 求第top 10大的元素
-    int pos = max_select_topk(vec, 0, vec.size() - 1, 4);
-    cout &lt;&lt; "第topk大的:" &lt;&lt; vec[pos] &lt;&lt; endl;
-    cout &lt;&lt; "前topk大的:";
-    for (int i = pos; i &lt; vec.size(); ++i) {
-        cout &lt;&lt; vec[i] &lt;&lt; " ";
+    <span class="pl-c"><span class="pl-c">//</span> 求第top 10大的元素</span>
+    <span class="pl-k">int</span> pos = <span class="pl-c1">max_select_topk</span>(vec, <span class="pl-c1">0</span>, vec.<span class="pl-c1">size</span>() - <span class="pl-c1">1</span>, <span class="pl-c1">4</span>);
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>第topk大的:<span class="pl-pds">"</span></span> &lt;&lt; vec[pos] &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>前topk大的:<span class="pl-pds">"</span></span>;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = pos; i &lt; vec.<span class="pl-c1">size</span>(); ++i) {
+        cout &lt;&lt; vec[i] &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    // 找topl小的
-    pos = min_select_topk(vec, 0, vec.size() - 1, 4);
-    cout &lt;&lt; "第topk小的:" &lt;&lt; vec[pos] &lt;&lt; endl;
-    cout &lt;&lt; "前topk小的:";
-    for (int i = 0; i &lt;= pos; ++i) {
-        cout &lt;&lt; vec[i] &lt;&lt; " ";
+    <span class="pl-c"><span class="pl-c">//</span> 找topl小的</span>
+    pos = <span class="pl-c1">min_select_topk</span>(vec, <span class="pl-c1">0</span>, vec.<span class="pl-c1">size</span>() - <span class="pl-c1">1</span>, <span class="pl-c1">4</span>);
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>第topk小的:<span class="pl-pds">"</span></span> &lt;&lt; vec[pos] &lt;&lt; endl;
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>前topk小的:<span class="pl-pds">"</span></span>;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt;= pos; ++i) {
+        cout &lt;&lt; vec[i] &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    sort(vec.begin(), vec.end());
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
+    <span class="pl-c1">sort</span>(vec.<span class="pl-c1">begin</span>(), vec.<span class="pl-c1">end</span>());
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
 
     cout &lt;&lt; endl;
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>归并排序</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">#if 1
-void merge(vector&lt;int&gt;&amp; vec, int i, int j, int mid)
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">if</span> <span class="pl-c1">1</span>
+<span class="pl-k">void</span> <span class="pl-en">merge</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; vec, <span class="pl-k">int</span> i, <span class="pl-k">int</span> j, <span class="pl-k">int</span> mid)
 {
-    vector&lt;int&gt; tmp;
-    tmp.reserve(j - i + 1);
+    vector&lt;<span class="pl-k">int</span>&gt; tmp;
+    tmp.<span class="pl-c1">reserve</span>(j - i + <span class="pl-c1">1</span>);
 
-    int l = i, r = mid+1;
-    while (l &lt;= mid &amp;&amp; r &lt;= j)
+    <span class="pl-k">int</span> l = i, r = mid+<span class="pl-c1">1</span>;
+    <span class="pl-k">while</span> (l &lt;= mid &amp;&amp; r &lt;= j)
     {
-        if (vec[l] &gt; vec[r])
+        <span class="pl-k">if</span> (vec[l] &gt; vec[r])
         {
-            tmp.push_back(vec[r++]);
+            tmp.<span class="pl-c1">push_back</span>(vec[r++]);
         }
-        else
+        <span class="pl-k">else</span>
         {
-            tmp.push_back(vec[l++]);
+            tmp.<span class="pl-c1">push_back</span>(vec[l++]);
         }
     }
 
-    while (r &lt;= j)
+    <span class="pl-k">while</span> (r &lt;= j)
     {
-        tmp.push_back(vec[r++]);
+        tmp.<span class="pl-c1">push_back</span>(vec[r++]);
     }
-    while (l &lt;= mid)
+    <span class="pl-k">while</span> (l &lt;= mid)
     {
-        tmp.push_back(vec[l++]);
+        tmp.<span class="pl-c1">push_back</span>(vec[l++]);
     }
 
-    for (int idx = i; idx &lt;= j; idx++)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> idx = i; idx &lt;= j; idx++)
     {
         vec[idx] = tmp[idx-i];
     }
 }
-void mergeSort(vector&lt;int&gt;&amp; vec, int i, int j)
+<span class="pl-k">void</span> <span class="pl-en">mergeSort</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; vec, <span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
 {
-    if (i &gt;= j)
+    <span class="pl-k">if</span> (i &gt;= j)
     {
-        return;
+        <span class="pl-k">return</span>;
     }
 
-    int mid = (i + j) / 2;
-    mergeSort(vec, i, mid);
-    mergeSort(vec, mid + 1, j);
+    <span class="pl-k">int</span> mid = (i + j) / <span class="pl-c1">2</span>;
+    <span class="pl-c1">mergeSort</span>(vec, i, mid);
+    <span class="pl-c1">mergeSort</span>(vec, mid + <span class="pl-c1">1</span>, j);
 
-    merge(vec, i, j, mid);  // [i,mid] [mid+1, j]
+    <span class="pl-c1">merge</span>(vec, i, j, mid);  <span class="pl-c"><span class="pl-c">//</span> [i,mid] [mid+1, j]</span>
 }
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    vector&lt;int&gt; vec;
-    for (int i = 0; i &lt; 11; ++i) {
-        vec.push_back(rand() % 100);
+    vector&lt;<span class="pl-k">int</span>&gt; vec;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">11</span>; ++i) {
+        vec.<span class="pl-c1">push_back</span>(<span class="pl-c1">rand</span>() % <span class="pl-c1">100</span>);
     }
 
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
-    }
-    cout &lt;&lt; endl;
-
-    mergeSort(vec, 0, vec.size() - 1);
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    return 0;
+    <span class="pl-c1">mergeSort</span>(vec, <span class="pl-c1">0</span>, vec.<span class="pl-c1">size</span>() - <span class="pl-c1">1</span>);
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
+    }
+    cout &lt;&lt; endl;
+
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>k个有序链表合并</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">#if 1
-struct ListNode
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">if</span> <span class="pl-c1">1</span>
+<span class="pl-k">struct</span> <span class="pl-en">ListNode</span>
 {
-    int val;
+    <span class="pl-k">int</span> val;
     ListNode* next;
 
-    ListNode(int x):val(x),next(nullptr){}
+    <span class="pl-en">ListNode</span>(<span class="pl-k">int</span> x):val(x),next(<span class="pl-c1">nullptr</span>){}
 };
-ListNode* init_link(initializer_list&lt;int&gt; list)
+ListNode* <span class="pl-en">init_link</span>(initializer_list&lt;<span class="pl-k">int</span>&gt; list)
 {
-    ListNode* head = nullptr;
-    ListNode* p = nullptr;
+    ListNode* head = <span class="pl-c1">nullptr</span>;
+    ListNode* p = <span class="pl-c1">nullptr</span>;
 
-    for (int v : list)
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : list)
     {
-        if (head == nullptr)
+        <span class="pl-k">if</span> (head == <span class="pl-c1">nullptr</span>)
         {
-            head = new ListNode(v);
+            head = <span class="pl-k">new</span> <span class="pl-c1">ListNode</span>(v);
             p = head;
         }
-        else
+        <span class="pl-k">else</span>
         {
-            p-&gt;next = new ListNode(v);
-            p = p-&gt;next;
+            p-&gt;<span class="pl-smi">next</span> = <span class="pl-k">new</span> <span class="pl-c1">ListNode</span>(v);
+            p = p-&gt;<span class="pl-smi">next</span>;
         }
     }
 
-    return head;
+    <span class="pl-k">return</span> head;
 }
-ListNode* mergeTwoLink(ListNode* link1, ListNode* link2)
+ListNode* <span class="pl-en">mergeTwoLink</span>(ListNode* link1, ListNode* link2)
 {
-    if (link1 == nullptr)
+    <span class="pl-k">if</span> (link1 == <span class="pl-c1">nullptr</span>)
     {
-        return link2;
+        <span class="pl-k">return</span> link2;
     }
-    if (link2 == nullptr)
+    <span class="pl-k">if</span> (link2 == <span class="pl-c1">nullptr</span>)
     {
-        return link1;
+        <span class="pl-k">return</span> link1;
     }
 
-    if (link1-&gt;val &gt; link2-&gt;val)
+    <span class="pl-k">if</span> (link1-&gt;<span class="pl-smi">val</span> &gt; link2-&gt;<span class="pl-smi">val</span>)
     {
-        return mergeTwoLink(link2, link1);
+        <span class="pl-k">return</span> <span class="pl-c1">mergeTwoLink</span>(link2, link1);
     }
 
     ListNode* head = link1;
 
-    ListNode* p1 = link1-&gt;next, * p2 = link2, * p = head;
-    while (p1 != nullptr &amp;&amp; p2 != nullptr)
+    ListNode* p1 = link1-&gt;<span class="pl-smi">next</span>, * p2 = link2, * p = head;
+    <span class="pl-k">while</span> (p1 != <span class="pl-c1">nullptr</span> &amp;&amp; p2 != <span class="pl-c1">nullptr</span>)
     {
-        if (p1-&gt;val &lt; p2-&gt;val)
+        <span class="pl-k">if</span> (p1-&gt;<span class="pl-smi">val</span> &lt; p2-&gt;<span class="pl-smi">val</span>)
         {
-            p-&gt;next = p1;
+            p-&gt;<span class="pl-smi">next</span> = p1;
             p = p1;
-            p1 = p1-&gt;next;
+            p1 = p1-&gt;<span class="pl-smi">next</span>;
         }
-        else
+        <span class="pl-k">else</span>
         {
-            p-&gt;next = p2;
+            p-&gt;<span class="pl-smi">next</span> = p2;
             p = p2;
-            p2 = p2-&gt;next;
+            p2 = p2-&gt;<span class="pl-smi">next</span>;
         }
     }
 
-    if (p1 != nullptr)
+    <span class="pl-k">if</span> (p1 != <span class="pl-c1">nullptr</span>)
     {
-        p-&gt;next = p1;
+        p-&gt;<span class="pl-smi">next</span> = p1;
     }
-    if (p2 != nullptr)
+    <span class="pl-k">if</span> (p2 != <span class="pl-c1">nullptr</span>)
     {
-        p-&gt;next = p2;
+        p-&gt;<span class="pl-smi">next</span> = p2;
     }
 
-    return head;
+    <span class="pl-k">return</span> head;
 }
-ListNode* mergeLink(vector&lt;ListNode*&gt;&amp; vlink, int i, int j)
+ListNode* <span class="pl-en">mergeLink</span>(vector&lt;ListNode*&gt;&amp; vlink, <span class="pl-k">int</span> i, <span class="pl-k">int</span> j)
 {
-    if (i &gt;= j)
+    <span class="pl-k">if</span> (i &gt;= j)
     {
-        return vlink[i];
+        <span class="pl-k">return</span> vlink[i];
     }
 
-    int mid = (i + j) / 2;
-    ListNode* left = mergeLink(vlink, i, mid);
-    ListNode* right = mergeLink(vlink, mid + 1, j);
+    <span class="pl-k">int</span> mid = (i + j) / <span class="pl-c1">2</span>;
+    ListNode* left = <span class="pl-c1">mergeLink</span>(vlink, i, mid);
+    ListNode* right = <span class="pl-c1">mergeLink</span>(vlink, mid + <span class="pl-c1">1</span>, j);
 
-    return mergeTwoLink(left,right);
+    <span class="pl-k">return</span> <span class="pl-c1">mergeTwoLink</span>(left,right);
 }
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    ListNode* p1 = init_link({ 3, 6, 8 });  // {}
-    ListNode* p2 = init_link({ 2, 4 });
-    ListNode* p3 = init_link({ 1, 5, 9 });
-    ListNode* p4 = init_link({ 0, 7 });
-    ListNode* p5 = init_link({ 10 });
+    ListNode* p1 = <span class="pl-c1">init_link</span>({ <span class="pl-c1">3</span>, <span class="pl-c1">6</span>, <span class="pl-c1">8</span> });  <span class="pl-c"><span class="pl-c">//</span> {}</span>
+    ListNode* p2 = <span class="pl-c1">init_link</span>({ <span class="pl-c1">2</span>, <span class="pl-c1">4</span> });
+    ListNode* p3 = <span class="pl-c1">init_link</span>({ <span class="pl-c1">1</span>, <span class="pl-c1">5</span>, <span class="pl-c1">9</span> });
+    ListNode* p4 = <span class="pl-c1">init_link</span>({ <span class="pl-c1">0</span>, <span class="pl-c1">7</span> });
+    ListNode* p5 = <span class="pl-c1">init_link</span>({ <span class="pl-c1">10</span> });
     vector&lt;ListNode*&gt; vlink;
-    vlink.push_back(p1);
-    vlink.push_back(p2);
-    vlink.push_back(p3);
-    vlink.push_back(p4);
-    vlink.push_back(p5);
-    ListNode* p = mergeLink(vlink, 0, vlink.size() - 1);
-    for (ListNode* c = p; c != nullptr; c = c-&gt;next) {
-        cout &lt;&lt; c-&gt;val &lt;&lt; " ";
+    vlink.<span class="pl-c1">push_back</span>(p1);
+    vlink.<span class="pl-c1">push_back</span>(p2);
+    vlink.<span class="pl-c1">push_back</span>(p3);
+    vlink.<span class="pl-c1">push_back</span>(p4);
+    vlink.<span class="pl-c1">push_back</span>(p5);
+    ListNode* p = <span class="pl-c1">mergeLink</span>(vlink, <span class="pl-c1">0</span>, vlink.<span class="pl-c1">size</span>() - <span class="pl-c1">1</span>);
+    <span class="pl-k">for</span> (ListNode* c = p; c != <span class="pl-c1">nullptr</span>; c = c-&gt;<span class="pl-smi">next</span>) {
+        cout &lt;&lt; c-&gt;<span class="pl-smi">val</span> &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>O(logn)对数时间求解中位数</h3>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/955f53db43ddc77410c368ec2fe287bcc64054822a9e59beaf547fcd867d12f3/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f352e706e67"><img src="https://camo.githubusercontent.com/955f53db43ddc77410c368ec2fe287bcc64054822a9e59beaf547fcd867d12f3/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f352e706e67" alt="5" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/83_classic_algorithms/5.png" style="max-width: 100%;"></a></p>
-<pre lang="cpp" class="notranslate"><code class="notranslate">#if 1
-double middleValue(vector&lt;int&gt;&amp; nums1, int length1, vector&lt;int&gt;&amp; nums2, int length2)
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">if</span> <span class="pl-c1">1</span>
+<span class="pl-k">double</span> <span class="pl-en">middleValue</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; nums1, <span class="pl-k">int</span> length1, vector&lt;<span class="pl-k">int</span>&gt;&amp; nums2, <span class="pl-k">int</span> length2)
 {
-    if (length1 &gt; length2)
+    <span class="pl-k">if</span> (length1 &gt; length2)
     {
-        middleValue(nums2, length2, nums1, length1);
+        <span class="pl-c1">middleValue</span>(nums2, length2, nums1, length1);
     }
 
-    if (length1 == 0)
+    <span class="pl-k">if</span> (length1 == <span class="pl-c1">0</span>)
     {
-        // 0 0 0 0 0 0 0    (6-1)/2=3
-        int k = (length2 - 1) / 2;
-        if (length2 % 2 == 0) {
-            return (nums2[k] + nums2[k + 1]) * 1.0 / 2;
+        <span class="pl-c"><span class="pl-c">//</span> 0 0 0 0 0 0 0    (6-1)/2=3</span>
+        <span class="pl-k">int</span> k = (length2 - <span class="pl-c1">1</span>) / <span class="pl-c1">2</span>;
+        <span class="pl-k">if</span> (length2 % <span class="pl-c1">2</span> == <span class="pl-c1">0</span>) {
+            <span class="pl-k">return</span> (nums2[k] + nums2[k + <span class="pl-c1">1</span>]) * <span class="pl-c1">1.0</span> / <span class="pl-c1">2</span>;
         }
-        else {
-            return nums2[k];
+        <span class="pl-k">else</span> {
+            <span class="pl-k">return</span> nums2[k];
         }
     }
 
-    int begin = 0, end = length1;
-    int i = 0, j = 0;
-    int k = (length1 + length2 + 1) / 2;
+    <span class="pl-k">int</span> begin = <span class="pl-c1">0</span>, end = length1;
+    <span class="pl-k">int</span> i = <span class="pl-c1">0</span>, j = <span class="pl-c1">0</span>;
+    <span class="pl-k">int</span> k = (length1 + length2 + <span class="pl-c1">1</span>) / <span class="pl-c1">2</span>;
 
-    while (begin &lt;= end)
+    <span class="pl-k">while</span> (begin &lt;= end)
     {
-        i = (begin + end) / 2;
+        i = (begin + end) / <span class="pl-c1">2</span>;
         j = k - i;
 
-        if (i &gt; 0 &amp;&amp; j &lt; length2 &amp;&amp; nums1[i - 1] &gt; nums2[j])
+        <span class="pl-k">if</span> (i &gt; <span class="pl-c1">0</span> &amp;&amp; j &lt; length2 &amp;&amp; nums1[i - <span class="pl-c1">1</span>] &gt; nums2[j])
         {
-            end = i - 1;
+            end = i - <span class="pl-c1">1</span>;
         }
-        else if (j &gt; 0 &amp;&amp; i &lt; length1 &amp;&amp; nums2[j - 1] &gt; nums1[i])
+        <span class="pl-k">else</span> <span class="pl-k">if</span> (j &gt; <span class="pl-c1">0</span> &amp;&amp; i &lt; length1 &amp;&amp; nums2[j - <span class="pl-c1">1</span>] &gt; nums1[i])
         {
-            begin = i + 1;
+            begin = i + <span class="pl-c1">1</span>;
         }
-        else
+        <span class="pl-k">else</span>
         {
-            break;  //nums1[i - 1] &lt; nums2[j]&amp;&amp;nums2[j - 1] &lt; nums1[i]
+            <span class="pl-k">break</span>;  <span class="pl-c"><span class="pl-c">//</span>nums1[i - 1] &lt; nums2[j]&amp;&amp;nums2[j - 1] &lt; nums1[i]</span>
         }
     }
 
-    int left = 0;
-    if (i == 0)
+    <span class="pl-k">int</span> left = <span class="pl-c1">0</span>;
+    <span class="pl-k">if</span> (i == <span class="pl-c1">0</span>)
     {
-        left = nums2[j - 1];
+        left = nums2[j - <span class="pl-c1">1</span>];
     }
-    else if (j == 0)
-    { // nums2这个数组太短了  中位数肯定都在num1这个数组当中
-        left = nums1[i - 1];
+    <span class="pl-k">else</span> <span class="pl-k">if</span> (j == <span class="pl-c1">0</span>)
+    { <span class="pl-c"><span class="pl-c">//</span> nums2这个数组太短了  中位数肯定都在num1这个数组当中</span>
+        left = nums1[i - <span class="pl-c1">1</span>];
     }
-    else
+    <span class="pl-k">else</span>
     {
-        left = std::max(nums1[i - 1], nums2[j - 1]);
+        left = <span class="pl-c1">std::max</span>(nums1[i - <span class="pl-c1">1</span>], nums2[j - <span class="pl-c1">1</span>]);
     }
-    int right = 0;
-    if (i==length1)
+    <span class="pl-k">int</span> right = <span class="pl-c1">0</span>;
+    <span class="pl-k">if</span> (i==length1)
     {
         right = nums2[j];
     }
-    else if (j == length2)
-    { //中位数肯定都在num1这个数组当中
+    <span class="pl-k">else</span> <span class="pl-k">if</span> (j == length2)
+    { <span class="pl-c"><span class="pl-c">//</span>中位数肯定都在num1这个数组当中</span>
         right = nums1[i];
     }
-    else
+    <span class="pl-k">else</span>
     {
-        right = std::min(nums1[i], nums2[j]);
+        right = <span class="pl-c1">std::min</span>(nums1[i], nums2[j]);
     }
 
-    if ((length1 + length2) % 2 == 0)
-    { // 偶数长度
-        return (left + right) * 1.0 / 2;
+    <span class="pl-k">if</span> ((length1 + length2) % <span class="pl-c1">2</span> == <span class="pl-c1">0</span>)
+    { <span class="pl-c"><span class="pl-c">//</span> 偶数长度</span>
+        <span class="pl-k">return</span> (left + right) * <span class="pl-c1">1.0</span> / <span class="pl-c1">2</span>;
     }
-    else
-    { // 奇数长度
-        return left;
+    <span class="pl-k">else</span>
+    { <span class="pl-c"><span class="pl-c">//</span> 奇数长度</span>
+        <span class="pl-k">return</span> left;
     }
 }
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    srand(time(nullptr));
+    <span class="pl-c1">srand</span>(<span class="pl-c1">time</span>(<span class="pl-c1">nullptr</span>));
 
-    vector&lt;int&gt; vec1;
-    vector&lt;int&gt; vec2;
-    for (int i = 0; i &lt; 10; ++i) {
-    	vec1.push_back(rand() % 100);
+    vector&lt;<span class="pl-k">int</span>&gt; vec1;
+    vector&lt;<span class="pl-k">int</span>&gt; vec2;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">10</span>; ++i) {
+    	vec1.<span class="pl-c1">push_back</span>(<span class="pl-c1">rand</span>() % <span class="pl-c1">100</span>);
     }
 
-    for (int i = 0; i &lt; 5; ++i) {
-        vec2.push_back(rand() % 100);
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">5</span>; ++i) {
+        vec2.<span class="pl-c1">push_back</span>(<span class="pl-c1">rand</span>() % <span class="pl-c1">100</span>);
     }
 
-    vector&lt;int&gt; vec = vec1;
-    for (int v : vec2) {
-        vec.push_back(v);
+    vector&lt;<span class="pl-k">int</span>&gt; vec = vec1;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec2) {
+        vec.<span class="pl-c1">push_back</span>(v);
     }
-    sort(vec.begin(), vec.end());
-    for (int v : vec) {
-        cout &lt;&lt; v &lt;&lt; " ";
+    <span class="pl-c1">sort</span>(vec.<span class="pl-c1">begin</span>(), vec.<span class="pl-c1">end</span>());
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> v : vec) {
+        cout &lt;&lt; v &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span>;
     }
     cout &lt;&lt; endl;
 
-    sort(vec1.begin(), vec1.end());
-    sort(vec2.begin(), vec2.end());
+    <span class="pl-c1">sort</span>(vec1.<span class="pl-c1">begin</span>(), vec1.<span class="pl-c1">end</span>());
+    <span class="pl-c1">sort</span>(vec2.<span class="pl-c1">begin</span>(), vec2.<span class="pl-c1">end</span>());
 
-    double midval = middleValue(vec1, vec1.size(), vec2, vec2.size());
-    cout &lt;&lt; "midval:" &lt;&lt; midval &lt;&lt; endl;
+    <span class="pl-k">double</span> midval = <span class="pl-c1">middleValue</span>(vec1, vec1.<span class="pl-c1">size</span>(), vec2, vec2.<span class="pl-c1">size</span>());
+    cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>midval:<span class="pl-pds">"</span></span> &lt;&lt; midval &lt;&lt; endl;
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
-#endif
-
-</code></pre>
+#<span class="pl-k">endif</span>
+</pre></div>
 <h1>动态规划算法</h1>
 <p>**动态规划算法思想：**算法的基本思想与分治算法类似，也是将待求解的问题划分为若干子问题，按划分的顺序求解子阶段问题，前一个子问题的解，为后一子问题的求解提供了有用的信息(<strong>最优子结构</strong>)。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃其它局部解。依次解决各个子问题，最后求出原问题的最优解。与分治算法最大的区别是：<strong>适合于用动态规划算法求解的问题，经分解后得到的子问题往往不是互相独****立的</strong>。</p>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a28ae4378254b78b54d864a46172f7801ea1bde39c32e91a978d96a141ff2cb6/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f362e706e67"><img src="https://camo.githubusercontent.com/a28ae4378254b78b54d864a46172f7801ea1bde39c32e91a978d96a141ff2cb6/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f362e706e67" alt="6" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/83_classic_algorithms/6.png" style="max-width: 100%;"></a></p>
 <p>**动态规划求解问题的基本步骤：**动态规划所处理的问题是一个多阶段决策问题，一般由初始状态开始，通过对中间阶段决策的选择，达到结束状态。动态规划算法的代码设计都有一定的模式，一般都要经过以下几个步骤：初始状态 -&gt; 决策1 -&gt; 决策2 -&gt; ... -&gt; 决策n -&gt; 结束状态1.找出最优解的性质，并刻划其结构特征。（<strong>找问题状态</strong>）2.递归地定义最优值。（<strong>找状态转移方程</strong>）3.自底向上的方式计算出最优值。4.根据计算最优值时得到的信息，构造最优解。</p>
 <h2>动态规划算法案例</h2>
 <h3>硬币选择问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">//动态规划
-//dp[0]=0
-//dp[1] = dp[1 - 1] + 1 = dp[0] + 1 = 1
-//dp[2] = dp[2 - 1] + 1 = dp[1] + 1 = 2
-//dp[3] = dp[3 - 3] + 1 = dp[0] + 1 = 2;
-//dp[4] = dp[4 - 3] + 1 = dp[1] + 1 = 2;
-//dp[5] = dp[5 - 5] + 1 = dp[0] + 1 = 1;
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>动态规划</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[0]=0</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[1] = dp[1 - 1] + 1 = dp[0] + 1 = 1</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[2] = dp[2 - 1] + 1 = dp[1] + 1 = 2</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[3] = dp[3 - 3] + 1 = dp[0] + 1 = 2;</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[4] = dp[4 - 3] + 1 = dp[1] + 1 = 2;</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[5] = dp[5 - 5] + 1 = dp[0] + 1 = 1;</span>
 
-//dp[n] = dp[n - Vj] + 1(n &gt;= Vj)
+<span class="pl-c"><span class="pl-c">//</span>dp[n] = dp[n - Vj] + 1(n &gt;= Vj)</span>
 
-#if 0
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 int v[] = { 1,3,5 };
 int length = sizeof(v) / sizeof(v[0]);
 
@@ -1059,12 +1057,11 @@ int main()
 
     return 0;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>最大子段和</h3>
 <p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f6259bba8e8b24e6e7fcbfda16c1cebcd922ed16e5a4669f1188fec92e68effc/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f372e706e67"><img src="https://camo.githubusercontent.com/f6259bba8e8b24e6e7fcbfda16c1cebcd922ed16e5a4669f1188fec92e68effc/68747470733a2f2f776f6275736869307830303030303030302e6f73732d636e2d7368656e7a68656e2e616c6979756e63732e636f6d2f696d616765732f446174615374727563747572652f38335f636c61737369635f616c676f726974686d732f372e706e67" alt="7" data-canonical-src="https://wobushi0x00000000.oss-cn-shenzhen.aliyuncs.com/images/DataStructure/83_classic_algorithms/7.png" style="max-width: 100%;"></a></p>
-<pre lang="cpp" class="notranslate"><code class="notranslate">//dp[n]=arr[n]+dp[n-1] i &gt; 0  i==0子段和认为是已知的
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>dp[n]=arr[n]+dp[n-1] i &gt; 0  i==0子段和认为是已知的</span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 int arr[] = { -2, 11, -4, 13, -5, -2 };
 const int length = sizeof(arr) / sizeof(arr[0]);
 int dp[length];
@@ -1089,25 +1086,24 @@ int main()
 
     return 0;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>最长非降子序列LIS</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">//动态规划
-//
-// 5, 3, 4, 1, 8, 6, 7, 10
-//
-//状态：dp[i] 以第i个元素结尾的非降子序列的长度
-//dp[i],从0到i-1最长的是dp[X]，如果arr[i]&gt;=arr[X],dp[i]=dp[X]+1
-//
-//dp[0] = 1
-//dp[1] = arr[1]&lt;arr[0] ? 1 : dp[0]+1; arr[1]&lt;arr[0],dp[1]=1
-//dp[2] = arr[2]&lt;arr[1] ? 1 : dp[1]+1; arr[2]&gt;arr[1],dp[2]=dp[1]+1=2
-//...
-//dp[i] = arr[i]&lt;arr[i-1] ? 1 : dp[i-1]+1; arr[i]&gt;=arr[i-1],dp[i]=dp[i-1]+1;arr[i]&lt;arr[i-1],dp[i]=1
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>动态规划</span>
+<span class="pl-c"><span class="pl-c">//</span></span>
+<span class="pl-c"><span class="pl-c">//</span> 5, 3, 4, 1, 8, 6, 7, 10</span>
+<span class="pl-c"><span class="pl-c">//</span></span>
+<span class="pl-c"><span class="pl-c">//</span>状态：dp[i] 以第i个元素结尾的非降子序列的长度</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[i],从0到i-1最长的是dp[X]，如果arr[i]&gt;=arr[X],dp[i]=dp[X]+1</span>
+<span class="pl-c"><span class="pl-c">//</span></span>
+<span class="pl-c"><span class="pl-c">//</span>dp[0] = 1</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[1] = arr[1]&lt;arr[0] ? 1 : dp[0]+1; arr[1]&lt;arr[0],dp[1]=1</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[2] = arr[2]&lt;arr[1] ? 1 : dp[1]+1; arr[2]&gt;arr[1],dp[2]=dp[1]+1=2</span>
+<span class="pl-c"><span class="pl-c">//</span>...</span>
+<span class="pl-c"><span class="pl-c">//</span>dp[i] = arr[i]&lt;arr[i-1] ? 1 : dp[i-1]+1; arr[i]&gt;=arr[i-1],dp[i]=dp[i-1]+1;arr[i]&lt;arr[i-1],dp[i]=1</span>
 
-//我们dp[i]怎么拓展呢？是通过dp[i+n]&gt;=dp[i],这个时候dp[i+n]=dp[i]+1
+<span class="pl-c"><span class="pl-c">//</span>我们dp[i]怎么拓展呢？是通过dp[i+n]&gt;=dp[i],这个时候dp[i+n]=dp[i]+1</span>
 
-#if 0
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 int main()
 {
     int arr[] = { 5, 3, 4, 1, 8, 6, 7, 10 };
@@ -1136,11 +1132,10 @@ int main()
 
     return 0;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>最长公共子序列LCS</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">//动态规划求长度和字符串(递归)
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>动态规划求长度和字符串(递归)</span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 string s1 = "helloworld";
 string s2 = "hlweord";
 
@@ -1244,10 +1239,10 @@ int main()
 
     return 0;
 }
-#endif
+#<span class="pl-k">endif</span>
 
-//动态规划求长度和字符串(非递归)
-#if 0
+<span class="pl-c"><span class="pl-c">//</span>动态规划求长度和字符串(非递归)</span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 string s1 = "helloworld";
 string s2 = "hlweord";
 
@@ -1367,32 +1362,31 @@ int main()
 
     return 0;
 }
-#endif
-
-</code></pre>
+#<span class="pl-k">endif</span>
+</pre></div>
 <h3>01背包</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-0-1背包问题：有一组物品，其重量为
-w1,w2,...,wn，其价值为
-v1,v2,...,vn，现在有一个背包，其容量是c，问怎么样装入物品，可以使背包的价值最大化？
-*/
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">0-1背包问题：有一组物品，其重量为</span>
+<span class="pl-c">w1,w2,...,wn，其价值为</span>
+<span class="pl-c">v1,v2,...,vn，现在有一个背包，其容量是c，问怎么样装入物品，可以使背包的价值最大化？</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
 
-/*
-dp[i][j] i为所选范围为i...n,背包容量为j,对应的最大价值
+<span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">dp[i][j] i为所选范围为i...n,背包容量为j,对应的最大价值</span>
+<span class="pl-c"></span>
+<span class="pl-c">i==n,那么wn&gt;c,那么dp[n][j]=0</span>
+<span class="pl-c">wn&lt;=c,那么dp[n][j]=vn;</span>
+<span class="pl-c"></span>
+<span class="pl-c">i,i+1,i+2,...n是可选的物品</span>
+<span class="pl-c"></span>
+<span class="pl-c">wi&gt;j</span>
+<span class="pl-c">dp[i][j]=dp[i+1][j]</span>
+<span class="pl-c">wi &lt;= j ： 说明第i个物品能够装入背包   装入物品i，不装入物品i（取最大价值）</span>
+<span class="pl-c">dp[i][j] = max{dp[i+1][j],   vi + dp[i+1][j-wi]}</span>
+<span class="pl-c"></span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
 
-i==n,那么wn&gt;c,那么dp[n][j]=0
-wn&lt;=c,那么dp[n][j]=vn;
-
-i,i+1,i+2,...n是可选的物品
-
-wi&gt;j
-dp[i][j]=dp[i+1][j]
-wi &lt;= j ： 说明第i个物品能够装入背包   装入物品i，不装入物品i（取最大价值）
-dp[i][j] = max{dp[i+1][j],   vi + dp[i+1][j-wi]}
-
-*/
-
-#if 0
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 
 int w[] = { 8,6,4,2,5 };
 int v[] = { 6,4,7,8,6 };
@@ -1494,26 +1488,25 @@ int main()
     return 0;
 }
 
-#endif
-
-</code></pre>
+#<span class="pl-k">endif</span>
+</pre></div>
 <h3>三角数组求和</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
-例如，给定三角形：
-[
-  [2],
-  [3,4],
-  [6,5,7],
-  [4,1,8,3]
-]
-自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</span>
+<span class="pl-c">例如，给定三角形：</span>
+<span class="pl-c">[</span>
+<span class="pl-c">  [2],</span>
+<span class="pl-c">  [3,4],</span>
+<span class="pl-c">  [6,5,7],</span>
+<span class="pl-c">  [4,1,8,3]</span>
+<span class="pl-c">]</span>
+<span class="pl-c">自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。</span>
+<span class="pl-c"></span>
+<span class="pl-c">说明：</span>
+<span class="pl-c">如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
 
-说明：
-如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。
-*/
-
-#if 0
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 int** dp = nullptr;
 vector&lt;int&gt; vec1{ 2 };
 vector&lt;int&gt; vec2{ 3,4 };
@@ -1568,17 +1561,16 @@ int main()
 
     return 0;
 }
-#endif
-
-</code></pre>
+#<span class="pl-k">endif</span>
+</pre></div>
 <h1>贪心算法</h1>
 <p><strong>贪心算法</strong>当一个问题具有最优子结构性质时，可以使用动态规划法求解，但有时候使用贪心算法更简单，更直接而且解决问题的效率很高。例如前面动态规划算法中的硬币问题就可以用贪心算法来解决，从算法名字上来看，贪心算法总是做出在当前看来最好的选择，也就是说贪心算法<strong>并不从整体最优考虑</strong>，它所做出的选择只是在某种意义上的<strong>局部最优选择</strong>，当然最终希望贪心算法得到的最终结果也是最优的。<strong>虽然贪心算法不能对所有问题都得到整体最优解，但是对于很多问题它能够产生整体最优解，或者是趋****近于最优解</strong>。</p>
 <h2>贪心算法案例</h2>
 <h3>硬币问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-1,3,5分的硬币，现在给定一个价值c：11，问组成价值c需要的最少的硬币的数量？？？
-*/
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">1,3,5分的硬币，现在给定一个价值c：11，问组成价值c需要的最少的硬币的数量？？？</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 int coin_arr[] = { 1,3,5 };
 int length = sizeof(coin_arr) / sizeof(coin_arr[0]);
 const int cv = 18;
@@ -1608,18 +1600,17 @@ int main()
 
     return 0;
 }
-#endif
-
-</code></pre>
+#<span class="pl-k">endif</span>
+</pre></div>
 <h3>部分背包问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-部分背包问题，有n个物体，第i个物体的重量为wi，价值为vi。在总重量不超过C的情况下让总价值尽量高。
-每一个物体都可以只取走一部分，价值和重量按比例计算。求最大总价值。
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">部分背包问题，有n个物体，第i个物体的重量为wi，价值为vi。在总重量不超过C的情况下让总价值尽量高。</span>
+<span class="pl-c">每一个物体都可以只取走一部分，价值和重量按比例计算。求最大总价值。</span>
+<span class="pl-c"></span>
+<span class="pl-c">贪心算法 - 01背包 - 不一定得到最优解</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
 
-贪心算法 - 01背包 - 不一定得到最优解
-*/
-
-#if 0
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 struct product
 {
     bool operator&gt;(product&amp; obj)
@@ -1686,79 +1677,77 @@ int main()
 
     return 0;
 }
-#endif
-
-</code></pre>
+#<span class="pl-k">endif</span>
+</pre></div>
 <h3>柜台服务问题</h3>
-<pre lang="cpp" class="notranslate"><code class="notranslate">/*
-m个柜台提供服务，每个柜台给一个用户提供服务的时间是t(用数组表示每一个柜台提供服务的时间)，
-问怎么排列，使得柜台给所有用户提供服务的时间最少？
-*/
-struct Counter {  // 描述柜台
-    bool operator&lt;(const Counter &amp;counter) const {
-        return time &lt; counter.time;
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">/*</span></span>
+<span class="pl-c">m个柜台提供服务，每个柜台给一个用户提供服务的时间是t(用数组表示每一个柜台提供服务的时间)，</span>
+<span class="pl-c">问怎么排列，使得柜台给所有用户提供服务的时间最少？</span>
+<span class="pl-c"><span class="pl-c">*/</span></span>
+<span class="pl-k">struct</span> <span class="pl-en">Counter</span> {  <span class="pl-c"><span class="pl-c">//</span> 描述柜台</span>
+    <span class="pl-k">bool</span> <span class="pl-k">operator</span>&lt;(<span class="pl-k">const</span> Counter &amp;counter) <span class="pl-k">const</span> {
+        <span class="pl-k">return</span> time &lt; counter.<span class="pl-smi">time</span>;
     }
-    int id; // 柜台id
-    int time; // 柜台提供服务所花费的时间
+    <span class="pl-k">int</span> id; <span class="pl-c"><span class="pl-c">//</span> 柜台id</span>
+    <span class="pl-k">int</span> time; <span class="pl-c"><span class="pl-c">//</span> 柜台提供服务所花费的时间</span>
 };
-int main()
+<span class="pl-k">int</span> <span class="pl-en">main</span>()
 {
-    int arr[] = { 3,2,4 }; // 每一个柜台提供服务的时间
-    const int m = sizeof(arr) / sizeof(arr[0]); // 柜台的数量
-    int n = 15; // 办理业务的人数
+    <span class="pl-k">int</span> arr[] = { <span class="pl-c1">3</span>,<span class="pl-c1">2</span>,<span class="pl-c1">4</span> }; <span class="pl-c"><span class="pl-c">//</span> 每一个柜台提供服务的时间</span>
+    <span class="pl-k">const</span> <span class="pl-k">int</span> m = <span class="pl-k">sizeof</span>(arr) / <span class="pl-k">sizeof</span>(arr[<span class="pl-c1">0</span>]); <span class="pl-c"><span class="pl-c">//</span> 柜台的数量</span>
+    <span class="pl-k">int</span> n = <span class="pl-c1">15</span>; <span class="pl-c"><span class="pl-c">//</span> 办理业务的人数</span>
 
-    // 定义柜台信息数组，初始化柜台id和time
+    <span class="pl-c"><span class="pl-c">//</span> 定义柜台信息数组，初始化柜台id和time</span>
     Counter cons[m];
-    for (int i = 0; i &lt; m; ++i) {
-        cons[i].id = i;
-        cons[i].time = arr[i];
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; m; ++i) {
+        cons[i].<span class="pl-smi">id</span> = i;
+        cons[i].<span class="pl-smi">time</span> = arr[i];
     }
 
-    // 按照柜台提供服务的时间升序排列
-    sort(cons, cons + m);
+    <span class="pl-c"><span class="pl-c">//</span> 按照柜台提供服务的时间升序排列</span>
+    <span class="pl-c1">sort</span>(cons, cons + m);
 
-    int mintime = 0; // 记录给所有用户提供服务的最少时间
-    int x[m] = { 0 }; // 记录每一个柜台安排的用户数量
+    <span class="pl-k">int</span> mintime = <span class="pl-c1">0</span>; <span class="pl-c"><span class="pl-c">//</span> 记录给所有用户提供服务的最少时间</span>
+    <span class="pl-k">int</span> x[m] = { <span class="pl-c1">0</span> }; <span class="pl-c"><span class="pl-c">//</span> 记录每一个柜台安排的用户数量</span>
 
-    for (int i = 0; i &lt; n; ++i) {
-        // 先计算把i用户放在0号柜台的时间
-        int time = cons[0].time * (x[0] + 1);   //   1 5      5 1
-        // 再遍历其它的柜台，看是否可以得到更少的花费时间
-        int j = 1;
-        for (; j &lt; m; ++j) {
-            int t = cons[j].time * (x[j] + 1);
-            if (t &lt;= time) {  // 放在其它柜台处理时间总体更快，直接放入j柜台
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; n; ++i) {
+        <span class="pl-c"><span class="pl-c">//</span> 先计算把i用户放在0号柜台的时间</span>
+        <span class="pl-k">int</span> time = cons[<span class="pl-c1">0</span>].<span class="pl-smi">time</span> * (x[<span class="pl-c1">0</span>] + <span class="pl-c1">1</span>);   <span class="pl-c"><span class="pl-c">//</span>   1 5      5 1</span>
+        <span class="pl-c"><span class="pl-c">//</span> 再遍历其它的柜台，看是否可以得到更少的花费时间</span>
+        <span class="pl-k">int</span> j = <span class="pl-c1">1</span>;
+        <span class="pl-k">for</span> (; j &lt; m; ++j) {
+            <span class="pl-k">int</span> t = cons[j].<span class="pl-smi">time</span> * (x[j] + <span class="pl-c1">1</span>);
+            <span class="pl-k">if</span> (t &lt;= time) {  <span class="pl-c"><span class="pl-c">//</span> 放在其它柜台处理时间总体更快，直接放入j柜台</span>
                 x[j]++;
-                // 新添加了一个人，整体花费的时间有可能变得更长了，更新mintime
-                if (t &gt; mintime) {
+                <span class="pl-c"><span class="pl-c">//</span> 新添加了一个人，整体花费的时间有可能变得更长了，更新mintime</span>
+                <span class="pl-k">if</span> (t &gt; mintime) {
                     mintime = t;
                 }
-                break;
+                <span class="pl-k">break</span>;
             }
         }
-        // 最终还是放在0号柜台花费时间最少
-        if (j == m) {
-            x[0]++;
-            // 新添加了一个人，整体花费的时间有可能变得更长了，更新mintime
-            mintime = cons[0].time * x[0];
+        <span class="pl-c"><span class="pl-c">//</span> 最终还是放在0号柜台花费时间最少</span>
+        <span class="pl-k">if</span> (j == m) {
+            x[<span class="pl-c1">0</span>]++;
+            <span class="pl-c"><span class="pl-c">//</span> 新添加了一个人，整体花费的时间有可能变得更长了，更新mintime</span>
+            mintime = cons[<span class="pl-c1">0</span>].<span class="pl-smi">time</span> * x[<span class="pl-c1">0</span>];
         }
     }
 
     cout &lt;&lt; mintime &lt;&lt; endl;
-    for (int i = 0; i &lt; m; ++i) {
-        cout &lt;&lt; arr[cons[i].id] &lt;&lt; " : " &lt;&lt; x[i] &lt;&lt; endl;
+    <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; m; ++i) {
+        cout &lt;&lt; arr[cons[i].<span class="pl-smi">id</span>] &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> : <span class="pl-pds">"</span></span> &lt;&lt; x[i] &lt;&lt; endl;
     }
 
-    return 0;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }
-
-</code></pre>
+</pre></div>
 <h1>分支限界算法</h1>
 <p><strong>分支限界法类似于回溯算法</strong>，是在问题的解空间树上搜索问题解的算法，主要体现在两点不同：1.<strong>求解目标不同</strong>。回溯算法的求解目标是找出解空间树中满足约束条件的所有解，而分支限界法的求解目标是找出满足约束条件的一个解，或者是在满足约束条件的解中找出某种意义下的最优解。2.<strong>搜索解空间树的方式不同</strong>。回溯算法以深度优先的方式搜索解空间树，而分支限界法则以广度优先或者以最小耗费优先的方式搜索解空间树。<strong>分支限界算法基本思想</strong>：分支限界法常以广度优先或以最小耗费（最大效益）优先的方式搜索问题的解空间树。在分支限界法中，每一个活结点只有一次机会称为扩展节点，活结点一旦成为扩展节点，就一次性产生其所有儿子节点（<strong>分支</strong>），在这些儿子节点中，导致不可行解或是导致非最优解的儿子节点会被舍弃掉，其余儿子节点会被加入活结点表中。为了有效的选择下一个扩展节点加速搜索，在每一个活结点处计算一个函数值（<strong>限界</strong>），并根据计算的函数值结果从当前活结点表中取下一个最有利的节点成为当前的扩展节点，使搜索朝着解空间树上最优解的分支推进。重复上述节点扩展过程，直到找到所需的最优解或者活结点表为空。<strong>扩展节点</strong>：一个正在产生儿子的节点称作扩展节点<strong>活结点</strong>：一个自身已经生成，但其儿子还没有全部生成的节点<strong>死结点</strong>：一个所有儿子已经产生的节点<strong>深度优先搜索</strong>是对一个扩展节点R，一旦产生了它的一个儿子C，就把C当作新的扩展节点。在完成对子树C的深度搜索之后回溯到R时，将R重新变成扩展节点，继续生成R的下一个儿子。<strong>广度优先搜索</strong>是在一个扩展节点R变成死节点之前，它一直是扩展节点。<strong>从活结点表中选择下一个扩展节点时，不同的方式会导致不同的分支限界法</strong>，常见有：<strong>1.****队列式（FIFO）分支限界法</strong>a.一开始，根结点是唯一的活结点，根结点加入活结点队列。b.从活结点队列中取出队头结点后，作为当前扩展结点。c.对当前扩展结点，先从左到右产生它的所有孩子节点，<strong>用约束条件检查</strong>，把所有满足约束函数的孩子节点加入活结点队列中。d.再从活结点表中取出队首结点为当前扩展结点，重复上述过程，直到找到一个解或活结点队列为空为止。<strong>2.****优先级队列式分支限界法</strong>a.对每一活结点计算一个优先级（某些信息的函数值）。b.根据这些优先级从当前活结点表中优先选择一个优先级最高（最有利）的结点作为扩展结点，使搜索朝着解空间树上有最优解的分支推进，以便尽快地找出一个最优解。c.对当前扩展结点，先从左到右产生它的所有孩子节点，<strong>用约束条件检查</strong>，对所有满足约束函数的孩子节点计算优先级并加入到活结点优先级队列中。d.再从活结点表中取出下一个优先级最高的结点为当前扩展结点，重复上述过程，直到找到一个解或活结点队列为空为止。</p>
 <h2>分支限界算法案例</h2>
 <h3>装载问题</h3>
 <p>（有一批共n个集装箱要装上2艘载重量分别为c1，c2的轮船，其中集装箱i的重量为wi，且要求确定是否有一个合理的装载方案可将这n个集装箱装上这2艘轮船）</p>
-<pre lang="cpp" class="notranslate"><code class="notranslate">#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate">#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 struct Node
 {
     Node(int w, int l, Node* p, bool il)
@@ -1847,12 +1836,11 @@ int main()
 
     return 0;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h3>0-1背包问题</h3>
 <h4>使用FIFO队列</h4>
-<pre lang="cpp" class="notranslate"><code class="notranslate">//01背包FIFO队列
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>01背包FIFO队列</span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 int w[] = { 16,15,15 }; // 物品的重量
 int v[] = { 45, 25, 25 }; // 物品的价值
 int c = 30; // 背包的容量
@@ -1942,11 +1930,10 @@ int main()
 
     return 0;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <h4>使用优先级队列</h4>
-<pre lang="cpp" class="notranslate"><code class="notranslate">//01背包优先级队列
-#if 0
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>01背包优先级队列</span>
+#<span class="pl-k">if</span> <span class="pl-c1">0</span>
 int w[] = { 16,15,15 }; // 物品的重量
 int v[] = { 45, 25, 25 }; // 物品的价值
 int c = 31; // 背包的容量
@@ -2037,8 +2024,7 @@ int main()
 
     return 0;
 }
-#endif
-</code></pre>
+#<span class="pl-k">endif</span></pre></div>
 <p>Duplicate of #</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
@@ -2064,7 +2050,7 @@ if("06/01/2026"!=""){
 </script></div>
 </body>
 <script>
-var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
 var utterancesLoad=0;
 
 let themeSettings={
@@ -2138,7 +2124,70 @@ function iFrameLoading(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
 
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
 
 </script>
 <script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script>
